@@ -4,3 +4,11 @@ django-admin startproject inpatientsystem
 cd inpatientsystem/
 python manage.py runserver
 corie : environment location: /home/cornelia/miniconda3/envs/inpatientsystem
+create superuser(django admin):
+python manage.py createsuperuser
+Username (leave blank to use 'hpelitebook'): inpatient
+Password: inpatient
+Username (leave blank to use 'hpelitebook'): inpatientsystem
+Email address: mamitiana-cornelia.MAHITASOA@etu.univ-amu.fr
+Password: inpatient2023
+Superuser created successfully. #je n'arrive pas encore à me connecter
