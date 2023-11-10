@@ -1,1 +1,7 @@
-master nnn
+cd projet_django2023/
+conda activate inpatientsystem
+django-admin startproject inpatientsystem
+cd inpatientsystem/
+python manage.py runserver
+
+corie : environment location: /home/cornelia/miniconda3/envs/inpatientsystem
