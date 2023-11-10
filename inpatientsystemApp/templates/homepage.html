@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<div class="centered-content">
+        <img src="{% static 'media/images/doctor_image.jpg' %}" alt="doctor">
+    </div>
+Welcome {{name}} ! Enjoy your day
+</body>
+</html>
