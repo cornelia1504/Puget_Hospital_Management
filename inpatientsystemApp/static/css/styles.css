@@ -1,16 +1,21 @@
 body {
     color: #ffffff; /* Couleur du texte */
     font-size: 26px; /* Taille de la police */
-    font-family: 'Gergia', serif; /* Police de caractères */
+    font-family: 'Georgia', serif; /* Police de caractères */
     background-color: #c8a2c8; /* Couleur de fond */
     text-align: center; /* Texte centré horizontalement */
     line-height: 1.5; /* Hauteur de ligne pour un espacement agréable */
     margin: 0; /* Supprimer les marges par défaut du corps */
     padding: 0; /* Supprimer le remplissage par défaut du corps */
 }
+
 .centered-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+
+

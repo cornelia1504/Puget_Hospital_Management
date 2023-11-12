@@ -1,10 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'homebase.html' %}
+{% load static %}
 
-</body>
-</html>
+
+
+{% block content %}
+
+
+<head>
+
+  <style media="screen">
+    .jumbotron {
+      height: 1000px;
+      overflow: hidden;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      background-image: url('{% static "media/images/luminy_hospital.jpeg" %}');
+      background-size: cover;
+      {#background-size: 100% 100%;#}
+      background-repeat: no-repeat;
+      {#background-attachment: fixed;#}
+    }
+
+    .jumbotron h5,
+    h3 {
+      text-align: center;
+    }
+
+
+    .alert {
+      margin: 0px;
+    }
+
+
+
+    .glow {
+      font-size: 50px;
+      color: #48C9B0;
+      text-align: center;
+      {#margin-top: 50px;  #}
+      -webkit-animation: glow 1s ease-in-out infinite alternate;
+      -moz-animation: glow 1s ease-in-out infinite alternate;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        text-shadow: 0 0 10px #eeeeee, 0 0 20px #FFF933, 0 0 30px #FFF933, 0 0 40px #FFF933, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+      }
+
+      to {
+        text-shadow: 0 0 20px #eeeeee, 0 0 30px #eeeeee, 0 0 40px #eeeeee, 0 0 50px #eeeeee, 0 0 60px #AF7AC5, 0 0 70px #AF7AC5, 0 0 80px #AF7AC5;
+      }
+    }
+  </style>
+</head>
+<br>
+<br>
+
+<div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px;">
+  <br>
+  <h5 class="display-3 glow">Inpatient Management System</h5>
+  <br><br><br><br><br>
+  <p>
+
+
+
+  <br><br>
+</div>
+
+<br><br><br><br>
+
+
+
+
+{% endblock content %}
