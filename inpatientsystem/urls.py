@@ -20,4 +20,6 @@ from inpatientsystemApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_view),
+    path('doctorclick', views.doctorclick_view),
+    path('adminclick', views.adminclick_view),
 ]

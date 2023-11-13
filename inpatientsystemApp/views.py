@@ -21,3 +21,15 @@ def homepage(request,):
 
 def home_view(request):
     return render(request,'index.html')
+
+#for showing signup/login button for doctor
+def doctorclick_view(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('afterlogin')
+    return render(request,'doctorclick.html')
+
+#for showing signup/login button for admin
+def adminclick_view(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('afterlogin')
+    return render(request,'adminclick.html')

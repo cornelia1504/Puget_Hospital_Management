@@ -1,0 +1,28 @@
+{% extends 'homebase.html' %}
+
+
+{% block content %}
+<style>
+  .content {
+    background-color: #E8F8F5;
+    color: #050503;
+    text-align: center;
+    padding: 20px;
+  }
+
+</style>
+<br>
+<br>
+
+<div class="content jumbotron" style="margin-bottom:0px; text-align: center;">
+  <h1 class="display-4" style="margin-top: 60px; margin-bottom: 50px;">Hello, Doctor</h1>
+  <p class="lead" style="margin-bottom: 50px;">Welcome to Inpatient Management System.</p>
+  <hr class="my-4">
+
+  <p class="lead">
+    <a class="btn btn-danger btn-lg" href="/doctorsignup" role="button">Apply</a>
+    <a class="btn btn-success btn-lg" href="/doctorlogin" role="button">Login</a>
+  </p>
+</div>
+
+{% endblock content %}
