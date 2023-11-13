@@ -11,4 +11,5 @@ Password: inpatient
 Username (leave blank to use 'hpelitebook'): inpatientsystem
 Email address: mamitiana-cornelia.MAHITASOA@etu.univ-amu.fr
 Password: inpatient2023
-Superuser created successfully. #je n'arrive pas encore à me connecter
+Superuser created successfully. #je n'arrive pas encore à me connecter # Superuser est admin? je pense car j'ai reecreer les page login,il  faut redirecter les loogin pages
+conda install --name inpatientsystem django-widget-tweaks #Lan: install pour traiter les widgets in html et css, commencer a partir de adminsignup.html

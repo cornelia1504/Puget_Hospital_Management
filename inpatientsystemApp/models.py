@@ -1,3 +1,4 @@
+# models.py
 from django.db import models
 
 class Department(models.Model):
@@ -9,8 +10,8 @@ class Patient(models.Model):
     id_bed = models.ForeignKey('Bed', on_delete=models.SET_NULL, null=True)
     id_doctor = models.ForeignKey('Doctor', on_delete=models.SET_NULL, null=True)
     id_department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)
-    nom_patient = models.CharField(max_length=50)
-    prenom_patient = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField()
     patient_department = models.CharField(max_length=50)
     gender_patient = models.CharField(max_length=10)
@@ -18,8 +19,8 @@ class Patient(models.Model):
 class Doctor(models.Model):
     id_doctor = models.AutoField(primary_key=True)
     id_department = models.ForeignKey(Department, on_delete=models.CASCADE)
-    nom_doctor = models.CharField(max_length=50)
-    prenom_doctor = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     description_doctor = models.TextField()
 
 class Bed(models.Model):

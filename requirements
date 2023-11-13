@@ -1,0 +1,5 @@
+enter into conda environment 'inpatientsystem':
+conda install --name inpatientsystem Django==4.1 / pip install Django==4.1
+conda install --name inpatientsystem sqlparse==0.4.1 / pip install sqlparse==0.4.1
+conda install --name inpatientsystem django-widget-tweaks
+...
