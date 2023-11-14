@@ -1,16 +1,89 @@
+{% load static %}
 body {
-    color: #ffffff; /* Couleur du texte */
-    font-size: 26px; /* Taille de la police */
-    font-family: 'Georgia', serif; /* Police de caractères */
-    background-color: #c8a2c8; /* Couleur de fond */
-    text-align: center; /* Texte centré horizontalement */
-    line-height: 1.5; /* Hauteur de ligne pour un espacement agréable */
+    color: #ffffff;
+    font-size: 26px;
+    font-family: serif, "Harlow Solid Italic"; ]
+    background-color: #c8a2c7;
+    text-align: center;
+    line-height: 1.5;
     margin: 0; /* Supprimer les marges par défaut du corps */
     padding: 0; /* Supprimer le remplissage par défaut du corps */
 }
 
+.navbar {
+            background-color: #8B8589;  /* Couleur taupe */
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+        }
 
+.content {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Hauteur minimale de la section du contenu à 100% de la hauteur de la vue (viewport) */
+    padding-top: 80px; /* Ajustez cette valeur en fonction de la hauteur de votre barre de navigation */
+    color: white; /* Couleur du texte sur l'image de fond */
+}
 
+.admin_button {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: linear-gradient(
+        to top right,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2) 30%,
+        rgba(0, 0, 0, 0)
+  );
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
 
+.admin_button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
 
+.admin_button:active {
+  box-shadow:
+    inset -2px -2px 3px rgba(0, 0, 255, 1),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
 
+.doctor_button {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: linear-gradient(
+        to top right,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2) 30%,
+        rgba(0, 0, 0, 0)
+  );
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.doctor_button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.doctor_button:active {
+  box-shadow:
+    inset -2px -2px 3px rgba(0, 0, 255, 1),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
