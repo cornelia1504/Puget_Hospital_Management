@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Homepage</title>
+     {% load static %}
+    <style>
+        body {
+            background-image: url("{% static 'media/images/2-1.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body>
 {% load static %}
