@@ -7,7 +7,6 @@ body {
     text-align: center;
     line-height: 1.5;
     margin: 80px; /* Supprimer les marges par défaut du corps */
-    padding: 0; /* Supprimer le remplissage par défaut du corps */
 }
 
 
@@ -34,6 +33,10 @@ body {
     line-height: 2.5;
     padding: 5px 20px;
     font-size: 1rem;
+    width : 200px;
+    height : 300px;
+    max-width : 200px;
+    max-height : 300px;
     text-align: center;
     color: #ffffff;
     text-shadow: 1px 1px 1px #000;
@@ -65,9 +68,9 @@ body {
 }
 
 img {
-    width : 50px;
+    width : 100px;
     height : 200px;
-    max-width : 50px;
+    max-width : 100px;
     max-height : 200px;
 }
 
