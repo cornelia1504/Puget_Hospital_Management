@@ -6,14 +6,14 @@ body {
     background-color: #c8a2c7;
     text-align: center;
     line-height: 1.5;
-    margin: 80px; /* Supprimer les marges par défaut du corps */
+    /* margin: 80px;  Supprimer les marges par défaut du corps */
 }
-
 
 
 .navbar {
             background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
             padding: 15px;
+            font-family: serif, "Harlow Solid Italic"; ]
             text-align: center;
             color: white;
             font-size: 24px;
@@ -74,6 +74,41 @@ img {
     max-height : 200px;
 }
 
+
+form {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-family: serif, "Harlow Solid Italic"; ]
+    width: 50%;
+    max-width: 400px;
+    margin: 0 auto; /* Pour centrer le formulaire horizontalement */
+    padding: 20px; /* Ajouter de l'espace à l'intérieur du formulaire */
+    box-sizing: border-box; /* Assure que la largeur inclut les rembourrages et les bordures */
+    border: 10px solid rgba(255, 255, 255, 1); /* Bordure bleue semi-transparente */
+    border-radius: 10px; /* Bords arrondis */
+}
+
+/* Style pour les champs de formulaire (par exemple, input, textarea) */
+form input, form textarea {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Bordure pour les champs */
+    border-radius: 5px; /* Bords arrondis pour les champs */
+}
+
+/* Style pour le bouton de soumission du formulaire */
+form button {
+    font-size: 20px;
+    padding: 7px;
+    background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Bords arrondis pour le bouton */
+    cursor: pointer; /* Curseur de type pointeur au survol */
+}
 
 
 

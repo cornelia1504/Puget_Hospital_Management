@@ -12,7 +12,7 @@ def click_admin(request,):
 def click_doctor(request,):
     return render(request, "doctorclick.html", {"name" : "Mamitiana"})
 
-def login_page(request):
+def singup_form(request):
     form = forms.LoginForm()
     message = ''
     if request.method == 'POST':

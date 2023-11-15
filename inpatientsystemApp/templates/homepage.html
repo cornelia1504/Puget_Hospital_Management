@@ -27,14 +27,12 @@
 <div class="content">
     <button class="home_button", value="click_admin">
         <img src="{% static 'media/images/clipboard-user-solid.svg' %}" alt="admin" >
-        <a class="home_button" href="{% url 'login' %}" role="button">Admin login</a>
+        <a class="home_button" href="{% url 'admin_login' %}" role="button">Admin login</a>
     </button>
-    &nbsp;&nbsp;&nbsp;
     <button class="home_button", value="click_doctor">
         <img src="{% static 'media/images/user-doctor-solid.svg' %}" alt="doctor">
-        <a class="home_button" href="{% url 'click_doctor' %}" role="button">Doctor login</a>
+        <a class="home_button" href="{% url 'doctor_login' %}" role="button">Doctor login</a>
     </button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     {% endblock content %}
 </body>

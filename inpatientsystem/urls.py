@@ -22,5 +22,7 @@ urlpatterns = [
     path('', views.homepage),
     path('click_admin/', views.click_admin, name='click_admin'),
     path('click_doctor/', views.click_doctor, name='click_doctor'),
-    path('login/',views.login_page, name='login'),
+    path('admin_login/',views.singup_form, name='admin_login'),
+    path('doctor_login/', views.singup_form, name='doctor_login'),
+
 ]
