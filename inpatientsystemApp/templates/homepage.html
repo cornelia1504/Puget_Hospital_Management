@@ -21,13 +21,13 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 <div class="navbar">
-        Inpatient Luminy
+        Welcome to your workspace
     </div>
-
+{% block content %}
 <div class="content">
     <button class="home_button", value="click_admin">
-        <img src="{% static 'media/images/clipboard-user-solid2.svg' %}" alt="admin" >
-        <a class="home_button" href="{% url 'click_admin' %}" role="button">Admin login</a>
+        <img src="{% static 'media/images/clipboard-user-solid.svg' %}" alt="admin" >
+        <a class="home_button" href="{% url 'login' %}" role="button">Admin login</a>
     </button>
     &nbsp;&nbsp;&nbsp;
     <button class="home_button", value="click_doctor">
@@ -36,6 +36,6 @@
     </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
-
+    {% endblock content %}
 </body>
 </html>

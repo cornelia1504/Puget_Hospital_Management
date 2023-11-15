@@ -64,6 +64,13 @@ body {
 
 }
 
+img {
+    width : 50px;
+    height : 200px;
+    max-width : 50px;
+    max-height : 200px;
+}
+
 
 
 

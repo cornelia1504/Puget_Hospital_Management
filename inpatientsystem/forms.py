@@ -1,7 +1,11 @@
 
 from django import forms
 from django.contrib.auth.models import User
-from .models import Department, Patient, Doctor, Bed, Operation, OperatingRoom, OperatingRoomSchedule, OperationPerforming
+from inpatientsystemApp.models import Department, Patient, Doctor, Bed, Operation, OperatingRoom, OperatingRoomSchedule, OperationPerforming
+#login admin/doctor
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=63, label='Nom d’utilisateur')
+    password = forms.CharField(max_length=63, widget=forms.PasswordInput, label='Mot de passe')
 
 # for admin signup
 class AdminSigupForm(forms.ModelForm):
