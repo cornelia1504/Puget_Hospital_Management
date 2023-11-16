@@ -6,6 +6,8 @@ body {
     background-color: #c8a2c7;
     text-align: center;
     line-height: 1.5;
+    max-width: 100%;
+    margin: 0 auto;
     /* margin: 80px;  Supprimer les marges par défaut du corps */
 }
 
@@ -87,6 +89,7 @@ form {
     box-sizing: border-box; /* Assure que la largeur inclut les rembourrages et les bordures */
     border: 10px solid rgba(255, 255, 255, 1); /* Bordure bleue semi-transparente */
     border-radius: 10px; /* Bords arrondis */
+    text-align: center;
 }
 
 /* Style pour les champs de formulaire (par exemple, input, textarea) */
@@ -101,13 +104,43 @@ form input, form textarea {
 
 /* Style pour le bouton de soumission du formulaire */
 form button {
-    font-size: 20px;
+    text-align: center;
+    font-size: 18px;
     padding: 7px;
     background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
     color: white;
     border: none;
-    border-radius: 5px; /* Bords arrondis pour le bouton */
-    cursor: pointer; /* Curseur de type pointeur au survol */
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+form a{
+    padding: 7px;
+    background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+    max-width: 100%;
+
+}
+
+.center-form {
+    text-align: center;
+}
+
+.button-container {
+    margin-top: 10px;
+}
+
+.button-container button {
+    margin: 05px; /* ou une valeur appropriée pour l'espace entre les boutons */
 }
 
 

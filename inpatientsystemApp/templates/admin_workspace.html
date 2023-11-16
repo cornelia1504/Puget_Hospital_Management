@@ -1,0 +1,15 @@
+{% extends 'homepage.html' %}
+{% block admin_content %}
+  <form class="center-form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <div class="button-container">
+        <p>{{ message }}</p>
+          <a type="submit" href = "{% url 'add_user' %}" >Add user</a><br>
+          <a type="submit">Add doctor</a><br>
+          <a type="submit">Add patient</a><br>
+          <a type="submit">Add bed</a><br>
+          <a type="submit">Add department</a><br>
+      </div>
+  </form>
+{% endblock admin_content %}

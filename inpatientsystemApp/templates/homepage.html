@@ -24,6 +24,7 @@
         Welcome to your workspace
     </div>
 {% block content %}
+    {% block admin_content %}
 <div class="content">
     <button class="home_button", value="click_admin">
         <img src="{% static 'media/images/clipboard-user-solid.svg' %}" alt="admin" >
@@ -34,6 +35,7 @@
         <a class="home_button" href="{% url 'doctor_login' %}" role="button">Doctor login</a>
     </button>
     </div>
-    {% endblock content %}
+    {% endblock admin_content %}
+{% endblock content %}
 </body>
 </html>

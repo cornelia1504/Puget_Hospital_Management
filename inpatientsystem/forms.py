@@ -1,6 +1,7 @@
 
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from inpatientsystemApp.models import Department, Patient, Doctor, Bed, Operation, OperatingRoom, OperatingRoomSchedule, OperationPerforming
 #login admin/doctor
 class LoginForm(forms.Form):
@@ -16,11 +17,15 @@ class SingupForm(forms.ModelForm):
             'password': forms.PasswordInput()
         }
 
-# for doctor related form
+class SuperuserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2', 'is_staff', 'is_superuser')
+
 class DoctorUserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'password']
+        fields = ['first_name', 'last_name', 'email', 'username', 'password']
         widgets = {
             'password': forms.PasswordInput()
         }

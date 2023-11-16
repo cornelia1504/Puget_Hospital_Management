@@ -1,0 +1,10 @@
+{% extends 'homepage.html' %}
+{% block content %}
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit" >Sing in
+        </button>
+    <p>{{ message }}</p>
+    </form>
+{% endblock content %}

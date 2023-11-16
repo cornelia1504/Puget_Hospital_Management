@@ -1,0 +1,13 @@
+{% extends 'homepage.html' %}
+
+{% block content %}
+  <form class="center-form" method="post" action="{% url 'add_user' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="button-container">
+      <button type="submit">Add user</button>
+      <button type="reset">Reset</button>
+      <button type="button">Quit</button>
+    </div>
+  </form>
+{% endblock %}

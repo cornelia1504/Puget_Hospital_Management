@@ -3,7 +3,10 @@
     <form method="post">
         {{ form.as_p }}
         {% csrf_token %}
-        <button type="submit" >Se connecter</button>
+        <button type="submit" >Sing in
+        </button>
+        <button type="submit" >Sing up
+        </button>
     <p>{{ message }}</p>
     </form>
 {% endblock content %}

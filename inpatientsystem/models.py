@@ -1,6 +1,5 @@
 # models.py
 from django.db import models
-
 class Department(models.Model):
     id_department = models.AutoField(primary_key=True)
     name_department = models.CharField(max_length=50)
@@ -22,6 +21,9 @@ class Doctor(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     description_doctor = models.TextField()
+    username = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
 
 class Bed(models.Model):
     id_bed = models.AutoField(primary_key=True)
