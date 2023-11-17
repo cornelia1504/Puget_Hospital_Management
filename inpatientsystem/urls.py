@@ -18,7 +18,7 @@ from django.urls import path
 from inpatientsystemApp import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', views.homepage),
     path('click_admin/', views.click_admin, name='click_admin'),
     path('click_doctor/', views.click_doctor, name='click_doctor'),
