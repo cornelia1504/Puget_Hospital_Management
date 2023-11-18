@@ -6,10 +6,8 @@
       <div class="button-container">
         <p>{{ message }}</p>
           <a type="submit" href = "{% url 'add_user' %}" >Add user</a><br>
-          <a type="submit">Add doctor</a><br>
-          <a type="submit">Add patient</a><br>
-          <a type="submit">Add bed</a><br>
-          <a type="submit">Add department</a><br>
+          <a type="submit" href = "{% url 'add_doctor' %}">Add doctor</a><br>
+          <a href="{% url 'admin:index' %}">Go to administration</a>
       </div>
   </form>
 {% endblock admin_content %}

@@ -82,10 +82,10 @@ form {
     color: black;
     font-size: 16px;
     font-family: serif, "Harlow Solid Italic"; ]
-    width: 50%;
-    max-width: 400px;
+    width: auto; /* Utilisation de "auto" pour laisser le formulaire s'adapter à la taille du contenu */
+    max-width: 80%;
     margin: 0 auto; /* Pour centrer le formulaire horizontalement */
-    padding: 20px; /* Ajouter de l'espace à l'intérieur du formulaire */
+    padding: 40px; /* Ajouter de l'espace à l'intérieur du formulaire */
     box-sizing: border-box; /* Assure que la largeur inclut les rembourrages et les bordures */
     border: 10px solid rgba(255, 255, 255, 1); /* Bordure bleue semi-transparente */
     border-radius: 10px; /* Bords arrondis */

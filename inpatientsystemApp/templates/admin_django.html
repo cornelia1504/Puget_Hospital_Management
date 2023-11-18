@@ -1,0 +1,3 @@
+{% if request.user.is_staff %}
+    <a href="{% url 'admin:index' %}">Aller à l'administration</a>
+{% endif %}

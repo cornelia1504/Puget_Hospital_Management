@@ -2,7 +2,7 @@
 from django.db import models
 class Department(models.Model):
     id_department = models.AutoField(primary_key=True)
-    name_department = models.CharField(max_length=50)
+    department = models.CharField(max_length=50)
 
 class Patient(models.Model):
     id_patient = models.AutoField(primary_key=True)

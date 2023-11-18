@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from inpatientsystemApp.models import Department, Patient, Doctor, Bed, Operation, OperatingRoom, OperatingRoomSchedule, OperationPerforming
 #login admin/doctor
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=63, label='Nom d’utilisateur')
-    password = forms.CharField(max_length=63, widget=forms.PasswordInput, label='Mot de passe')
+class admin_login_Form(forms.Form):
+    username = forms.CharField(max_length=63, label='Username')
+    password = forms.CharField(max_length=63, widget=forms.PasswordInput, label='Password')
 
 # for admin signup
 class SingupForm(forms.ModelForm):
