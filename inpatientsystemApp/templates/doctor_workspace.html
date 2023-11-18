@@ -1,0 +1,9 @@
+{% extends 'homepage.html' %}
+{% block content %}
+    <p> A toi de jouer : )</p>
+    <body class="doctor_workspace" >
+    <h1></h1>
+    <p>{{ current_date|date:"D d M Y" }}</p>
+    </body>
+    <a type="submit" href = "{% url "doctor_logout" %}">logout</a><br>
+{% endblock content %}

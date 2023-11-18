@@ -1,6 +1,6 @@
 {% extends 'homepage.html' %}
 
-{% block content_add %}
+{% block content %}
     <style>
         /* Styles CSS pour le formulaire */
         form {
@@ -13,7 +13,7 @@
 
     </style>
 <body>
-<form class="center-form" method="post" action="{% url 'add_doctor' %}">
+<form method="post" action="{% url 'add_doctor' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <div class="button-container">
@@ -23,4 +23,4 @@
     </div>
   </form>
 </body>
-{% endblock content_add %}
+{% endblock content %}

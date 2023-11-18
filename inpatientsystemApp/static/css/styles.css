@@ -82,12 +82,13 @@ form {
     color: black;
     font-size: 16px;
     font-family: serif, "Harlow Solid Italic"; ]
-    width: auto; /* Utilisation de "auto" pour laisser le formulaire s'adapter à la taille du contenu */
-    max-width: 80%;
+    text-align : left;
+    width: auto;
+    max-width: 60%;
     margin: 0 auto; /* Pour centrer le formulaire horizontalement */
-    padding: 40px; /* Ajouter de l'espace à l'intérieur du formulaire */
+    padding: 20px; /* Ajouter de l'espace à l'intérieur du formulaire */
     box-sizing: border-box; /* Assure que la largeur inclut les rembourrages et les bordures */
-    border: 10px solid rgba(255, 255, 255, 1); /* Bordure bleue semi-transparente */
+    border: 40px solid rgba(255, 255, 255, 1); /* Bordure bleue semi-transparente */
     border-radius: 10px; /* Bords arrondis */
     text-align: center;
 }
@@ -109,39 +110,60 @@ form button {
     padding: 7px;
     background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
     color: white;
+    font-family: serif, "Harlow Solid Italic"; ]
     border: none;
+    border-color: white;
     border-radius: 5px;
     cursor: pointer;
     display: block;
-    margin-bottom: 10px;
     max-width: 100%;
+    margin: 0 auto; /* Centre les boutons horizontalement */
+    margin-top: 10px;
 }
+form button:hover {
+    background-color: #8AFF8A; /* Fond vert clair */
+    color: white;
+}
+
+form button:active {
+    background-color: #8AFF8A; /* Fond vert clair */
+    box-shadow: inset -2px -2px 3px rgba(0, 0, 255, 1), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
 form a{
     padding: 7px;
     background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
     color: white;
-    text-align: center;
+    text-align: justify-all;
     margin: 0 auto;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     display: block;
-    margin-bottom: 10px;
-    max-width: 100%;
-
+    max-width: 20%;
+    margin-top: 10px;
 }
 
 .center-form {
     text-align: center;
 }
 
-.button-container {
+a{
+    width: auto;
+    max-width: 70%;
+    margin: 0 auto;
     margin-top: 10px;
 }
 
-.button-container button {
-    margin: 05px; /* ou une valeur appropriée pour l'espace entre les boutons */
+.doctor_workspace{
+    background-color: white;
+    max-width: 90%;
+ }
+
+@media screen and (max-width: 600px) {
+    /* Les styles spécifiques aux écrans de 600 pixels de largeur ou moins vont ici */
+    body {
+        font-size: 14px;  /* Par exemple, réduisez la taille de la police pour les petits écrans */
+    }
 }
-
-
-

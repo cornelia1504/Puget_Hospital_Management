@@ -1,13 +1,13 @@
 {% extends 'homepage.html' %}
 
 {% block content %}
-  <form method="post" action="{% url 'add_user' %}">
+  <form method="post" action="{% url 'doctor_sign_up' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <div class="button-container">
-      <button type="submit">Save</button>
+      <button type="submit">Sign up</button>
       <button type="reset">Reset</button>
-        <a href="{% url 'admin_workspace' %}">Quit</a>
+        <a href="{% url 'doctor_login' %}">Quit</a>
     </div>
   </form>
 {% endblock content %}

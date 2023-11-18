@@ -8,11 +8,16 @@ class admin_login_Form(forms.Form):
     username = forms.CharField(max_length=63, label='Username')
     password = forms.CharField(max_length=63, widget=forms.PasswordInput, label='Password')
 
+class doctor_login_Form(forms.Form):
+    username = forms.CharField(max_length=63, label='Username')
+    password = forms.CharField(max_length=63, widget=forms.PasswordInput, label='Password')
+
+
 # for admin signup
-class SingupForm(forms.ModelForm):
+class Doctor_sign_up_Form(UserCreationForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'password']
+        fields = ['first_name', 'last_name', 'username']
         widgets = {
             'password': forms.PasswordInput()
         }

@@ -1,6 +1,6 @@
 {% extends 'homepage.html' %}
-{% block admin_content %}
-  <form class="center-form" method="post">
+{% block content %}
+  <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
       <div class="button-container">
@@ -8,6 +8,7 @@
           <a type="submit" href = "{% url 'add_user' %}" >Add user</a><br>
           <a type="submit" href = "{% url 'add_doctor' %}">Add doctor</a><br>
           <a href="{% url 'admin:index' %}">Go to administration</a>
+          <a href="{% url 'admin_logout' %}">Logout</a>
       </div>
   </form>
-{% endblock admin_content %}
+{% endblock content %}

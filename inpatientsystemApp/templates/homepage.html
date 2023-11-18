@@ -24,20 +24,16 @@
         Welcome to your workspace
     </div>
 {% block content %}
-    {% block admin_content %}
-        {% block content_add %}
 <div class="content">
-    <button class="home_button", value="click_admin">
+    <button class="home_button">
         <img src="{% static 'media/images/clipboard-user-solid.svg' %}" alt="admin" >
         <a class="home_button" href="{% url 'admin_login' %}" role="button">Admin login</a>
     </button>
-    <button class="home_button", value="click_doctor">
+    <button class="home_button">
         <img src="{% static 'media/images/user-doctor-solid.svg' %}" alt="doctor">
         <a class="home_button" href="{% url 'doctor_login' %}" role="button">Doctor login</a>
     </button>
     </div>
-        {% endblock content_add %}
-    {% endblock admin_content %}
 {% endblock content %}
 </body>
 </html>

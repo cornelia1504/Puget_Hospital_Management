@@ -18,11 +18,15 @@ from django.urls import path
 from inpatientsystemApp import views
 
 urlpatterns = [
-    path('', views.homepage),
+    path('', views.homepage, name='homepage'),
     path('admin/', admin.site.urls, name='admin'),
     path('admin_login/', views.admin_login, name='admin_login'),
     path('admin_workspace/', views.admin_workspace, name='admin_workspace'),
-    path('doctor_login/', views.singup_doctor_form, name='doctor_login'),
     path('add_user/', views.add_user, name='add_user'),
     path('add_doctor/', views.add_doctor, name='add_doctor'),
+    path('doctor_login/', views.doctor_login, name='doctor_login'),
+    path('doctor_workspace/', views.doctor_workspace, name='doctor_workspace'),
+    path('doctor_sign_up/', views.doctor_sign_up, name='doctor_sign_up'),
+    path('admin_logout/', views.admin_logout, name='admin_logout'),
+    path('doctor_logout/', views.doctor_logout, name='doctor_logout'),
 ]
