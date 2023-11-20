@@ -14,7 +14,7 @@ class doctor_login_Form(forms.Form):
 
 
 # for admin signup
-class Doctor_sign_up_Form(UserCreationForm):
+
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username']
@@ -36,9 +36,10 @@ class DoctorUserForm(forms.ModelForm):
         }
 
 class DoctorForm(forms.ModelForm):
+
     class Meta:
         model = Doctor
-        fields = ['id_department', 'first_name', 'last_name', 'description_doctor']
+        fields = ['name_department', 'first_name', 'last_name', 'description_doctor']
 
 # for patient related form
 class PatientForm(forms.ModelForm):
@@ -50,7 +51,7 @@ class PatientForm(forms.ModelForm):
 class BedForm(forms.ModelForm):
     class Meta:
         model = Bed
-        fields = ['id_patient', 'id_department', 'bed_department', 'profile_pic']
+        fields = ['id_patient', 'id_department', 'bed_department']
 
 # for operation related form
 class OperationForm(forms.ModelForm):

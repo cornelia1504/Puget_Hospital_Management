@@ -28,6 +28,7 @@ def add(request, class_forms, template, redirect_page):
     else:
         form = form_class()
 
+
     return render(request, template, {'form': form})
 
 @login_required

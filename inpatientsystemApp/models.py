@@ -3,7 +3,10 @@ from django.db import models
 
 class Department(models.Model):
     id_department = models.AutoField(primary_key=True)
-    name_department = models.CharField(max_length=50)
+    name_department = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name_department
 
 class Patient(models.Model):
     id_patient = models.AutoField(primary_key=True)
@@ -18,17 +21,18 @@ class Patient(models.Model):
 
 class Doctor(models.Model):
     id_doctor = models.AutoField(primary_key=True)
-    id_department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    name_department = models.ForeignKey(Department, on_delete=models.CASCADE, to_field='name_department')
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     description_doctor = models.TextField()
+    profile_pic = models.ImageField(upload_to='doctor_profile_pic/', null=True, blank=True)
 
 class Bed(models.Model):
     id_bed = models.AutoField(primary_key=True)
     id_patient = models.ForeignKey(Patient, on_delete=models.SET_NULL, null=True)
     id_department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)
     bed_department = models.CharField(max_length=50)
-    profile_pic = models.ImageField(upload_to='doctor_profile_pic/', null=True, blank=True)
+
 
 class Operation(models.Model):
     id_operation = models.AutoField(primary_key=True)
@@ -40,6 +44,7 @@ class Operation(models.Model):
 class OperatingRoom(models.Model):
     id_operating_room = models.AutoField(primary_key=True)
     class_operating_room = models.CharField(max_length=50)
+
 
 class OperatingRoomSchedule(models.Model):
     id_doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)

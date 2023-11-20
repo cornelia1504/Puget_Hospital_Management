@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from inpatientsystemApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.homepage, name='homepage'),
@@ -30,3 +32,6 @@ urlpatterns = [
     path('admin_logout/', views.admin_logout, name='admin_logout'),
     path('doctor_logout/', views.doctor_logout, name='doctor_logout'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

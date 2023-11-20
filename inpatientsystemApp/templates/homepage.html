@@ -20,9 +20,16 @@
 <body>
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-<div class="navbar">
-        Welcome to your workspace
-    </div>
+
+<div class="navbar" style="display: flex; align-items: center;">
+{#  <a href="{% url 'home_page' %}" style="margin-right: 10px;">#}
+{#    Home#}
+{#  </a>#}
+  <div style="flex: 1; text-align: center;">
+    Welcome to your workspace
+  </div>
+</div>
+
 {% block content %}
 <div class="content">
     <button class="home_button">
