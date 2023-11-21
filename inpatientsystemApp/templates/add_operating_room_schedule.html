@@ -1,0 +1,26 @@
+{% extends 'homepage.html' %}
+
+{% block content %}
+<style>
+    /* Styles CSS pour le formulaire */
+    form {
+        background-color: white;
+        padding: 20px;
+        width: auto; /* Utilisation de "auto" pour laisser le formulaire s'adapter à la taille du contenu */
+        max-width: 500px;
+        margin: 0 auto;
+    }
+</style>
+
+<body>
+    <form method="post" action="{% url 'add_operating_room_schedule' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-container">
+            <button type="submit">Save</button>
+            <button type="reset">Reset</button>
+            <a href="{% url 'admin_workspace' %}">Quit</a>
+        </div>
+    </form>
+</body>
+{% endblock content %}

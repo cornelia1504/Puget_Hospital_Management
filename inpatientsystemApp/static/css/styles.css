@@ -2,20 +2,21 @@
 body {
     color: #ffffff;
     font-size: 26px;
-    font-family: serif, "Harlow Solid Italic"; ]
+    font-family: serif, "Harlow Solid Italic";
     background-color: #c8a2c7;
     text-align: center;
     line-height: 1.5;
     max-width: 100%;
     margin: 0 auto;
     /* margin: 80px;  Supprimer les marges par défaut du corps */
+
 }
 
 
 .navbar {
             background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
             padding: 15px;
-            font-family: serif, "Harlow Solid Italic"; ]
+            font-family: serif, "Harlow Solid Italic";
             text-align: center;
             color: white;
             font-size: 24px;
@@ -81,7 +82,7 @@ form {
     background-color: white;
     color: black;
     font-size: 16px;
-    font-family: serif, "Harlow Solid Italic"; ]
+    font-family: serif, "Harlow Solid Italic";
     text-align : left;
     width: auto;
     max-width: 60%;
@@ -91,6 +92,7 @@ form {
     border: 40px solid rgba(255, 255, 255, 1); /* Bordure bleue semi-transparente */
     border-radius: 10px; /* Bords arrondis */
     text-align: center;
+    overflow: auto;
 }
 
 /* Style pour les champs de formulaire (par exemple, input, textarea) */
@@ -110,7 +112,7 @@ form button {
     padding: 7px;
     background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
     color: white;
-    font-family: serif, "Harlow Solid Italic"; ]
+    font-family: serif, "Harlow Solid Italic";
     border: none;
     border-color: white;
     border-radius: 5px;
@@ -166,4 +168,9 @@ a{
     body {
         font-size: 14px;  /* Par exemple, réduisez la taille de la police pour les petits écrans */
     }
+
 }
+
+.content-container {
+    overflow: auto;
+  }

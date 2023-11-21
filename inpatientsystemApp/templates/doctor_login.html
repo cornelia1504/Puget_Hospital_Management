@@ -3,10 +3,10 @@
     <form method="post">
         {{ form.as_p }}
         {% csrf_token %}
-        <button type="submit" >Sing in
+        <button type="submit" >Sign in
         </button>
-        <button type="submit" >Sing up
-        </button>
+        <a type="submit" href = "{% url 'doctor_sign_up_view' %}">Sign up
+        </a>
     <p>{{ message }}</p>
     </form>
 {% endblock content %}

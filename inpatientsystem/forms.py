@@ -3,6 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from inpatientsystemApp.models import Department, Patient, Doctor, Bed, Operation, OperatingRoom, OperatingRoomSchedule, OperationPerforming
+from django.contrib.auth.forms import UserCreationForm
 #login admin/doctor
 class admin_login_Form(forms.Form):
     username = forms.CharField(max_length=63, label='Username')
@@ -67,9 +68,10 @@ class OperatingRoomForm(forms.ModelForm):
 
 # for operating room schedule related form
 class OperatingRoomScheduleForm(forms.ModelForm):
+
     class Meta:
         model = OperatingRoomSchedule
-        fields = ['id_doctor', 'id_operating_room', 'class_operating_room', 'scheduled_time', 'finish_time']
+        fields = ['id_doctor', 'id_operating_room', 'scheduled_time', 'finish_time']
 
 # for operation performing related form
 class OperationPerformingForm(forms.ModelForm):
@@ -82,3 +84,23 @@ class ContactusForm(forms.Form):
     Name = forms.CharField(max_length=30)
     Email = forms.EmailField()
     Message = forms.CharField(max_length=500, widget=forms.Textarea(attrs={'rows': 3, 'cols': 30}))
+
+class DoctorSignupForm(UserCreationForm):
+    name_department = forms.CharField(max_length=50, required=True)
+    description_doctor = forms.CharField(required=True, widget=forms.Textarea)
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.save()
+        doctor = Doctor.objects.create(
+            user=user,
+            name_department=self.cleaned_data['name_department'],
+            first_name=self.cleaned_data['first_name'],
+            last_name=self.cleaned_data['last_name'],
+            description_doctor=self.cleaned_data['description_doctor']
+        )
+        return user
