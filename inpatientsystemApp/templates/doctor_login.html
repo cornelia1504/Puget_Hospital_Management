@@ -1,12 +1,16 @@
 {% extends 'homepage.html' %}
+
 {% block content %}
     <form method="post">
         {{ form.as_p }}
         {% csrf_token %}
-        <button type="submit" >Sign in
-        </button>
-        <a type="submit" href = "{% url 'doctor_sign_up_view' %}">Sign up
-        </a>
-    <p>{{ message }}</p>
+
+        <button type="submit">Login</button>
+
+        <a href="{% url 'doctor_sign_up_view' %}" style="text-decoration: none;">Sign up</a>
+
+        <a href="{% url 'homepage' %}" style="text-decoration: none;">Back</a>
+
+        <p>{{ message }}</p>
     </form>
 {% endblock content %}

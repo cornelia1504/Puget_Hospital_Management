@@ -26,6 +26,7 @@ class Doctor(models.Model):
     name_department = models.ForeignKey(Department, on_delete=models.CASCADE, to_field='name_department')
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50, null=True)
     description_doctor = models.TextField()
     profile_pic = models.ImageField(upload_to='doctor_profile_pic/', null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='doctor', null=True, blank=True)
@@ -82,3 +83,6 @@ class OperationPerforming(models.Model):
     id_patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     name_operation = models.CharField(max_length=50)
     date_of_operation = models.DateField()
+
+    def __str__(self):
+        return f'{self.name_operation} - {self.date_of_operation}'

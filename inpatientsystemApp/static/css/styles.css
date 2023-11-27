@@ -28,6 +28,8 @@ body {
     min-height: 100px; /* Hauteur minimale de la section du contenu à 100% de la hauteur de la vue (viewport) */
     padding-top: 150px; /* Ajustez cette valeur en fonction de la hauteur de votre barre de navigation */
     color: white; /* Couleur du texte sur l'image de fond */
+
+
 }
 
 
@@ -163,11 +165,16 @@ a{
     max-width: 90%;
  }
 
+
+
+
 @media screen and (max-width: 600px) {
     /* Les styles spécifiques aux écrans de 600 pixels de largeur ou moins vont ici */
     body {
         font-size: 14px;  /* Par exemple, réduisez la taille de la police pour les petits écrans */
     }
+
+
 
 }
 

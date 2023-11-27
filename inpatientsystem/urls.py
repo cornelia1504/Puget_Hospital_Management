@@ -18,6 +18,7 @@ from django.urls import path
 from inpatientsystemApp import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.homepage, name='homepage'),
@@ -31,6 +32,14 @@ urlpatterns = [
     path('doctor_sign_up/', views.doctor_signup_view, name='doctor_sign_up_view'),
     path('admin_logout/', views.admin_logout, name='admin_logout'),
     path('doctor_logout/', views.doctor_logout, name='doctor_logout'),
+
+    path('doctor_sign_up/doctor_login/', views.doctor_login, name='doctor_login'),
+    path('doctor_workspace/add_patient/', views.add_patient, name='add_patient'),
+    path('doctor_workspace/my_operation/', views.my_operation, name='my_operation'),
+    path('doctor_workspace/add_operation/', views.add_operation, name='add_operation'),
+    path('doctor_workspace/logout/', auth_views.LogoutView.as_view(), name='logout'),
+
+
 ]
 
 if settings.DEBUG:

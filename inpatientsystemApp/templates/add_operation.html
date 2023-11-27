@@ -1,0 +1,33 @@
+{% extends 'homepage.html' %}
+
+{% block content %}
+    <h2>Add Operation</h2>
+
+    <!-- 表单1：OperatingRoomScheduleForm -->
+    <form method="post">
+        {% csrf_token %}
+        <!-- 用于区分表单类型的隐藏字段 -->
+        <input type="hidden" name="form_type" value="operating_room_schedule">
+        {{ operating_room_schedule_form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- 表单2：OperationPerformingForm -->
+    <form method="post">
+        {% csrf_token %}
+        <!-- 用于区分表单类型的隐藏字段 -->
+        <input type="hidden" name="form_type" value="operation_performing">
+        {{ operation_performing_form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- 表单3：OperationForm -->
+    <form method="post">
+        {% csrf_token %}
+        <!-- 用于区分表单类型的隐藏字段 -->
+        <input type="hidden" name="form_type" value="operation">
+        {{ operation_form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}
