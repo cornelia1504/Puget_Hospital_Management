@@ -17,7 +17,8 @@
             padding: 0;
             height: 100vh;
             overflow: hidden;
-            background-image: url("{% static 'media/images/slider_img_3.jpg' %}");
+            {#background-image: url("{% static 'media/images/slider_img_3.jpg' %}");#}
+            background-image: url("{% static 'media/images/2-1.jpeg' %}");
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
@@ -96,11 +97,13 @@
                 <div class="content">
                     <button class="home_button">
                         <img src="{% static 'media/images/clipboard-user-solid.svg' %}" alt="admin">
-                        <a class="home_button" href="{% url 'admin_login' %}" role="button" style="text-decoration: none;">Admin login</a>
+                        <a class="home_button" href="{% url 'admin_login' %}" role="button"
+                           style="text-decoration: none;">Admin login</a>
                     </button>
                     <button class="home_button">
                         <img src="{% static 'media/images/user-doctor-solid.svg' %}" alt="doctor">
-                        <a class="home_button" href="{% url 'doctor_login' %}" role="button" style="text-decoration: none;">Doctor login</a>
+                        <a class="home_button" href="{% url 'doctor_login' %}" role="button"
+                           style="text-decoration: none;">Doctor login</a>
                     </button>
                 </div>
 
@@ -108,7 +111,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 
 
 
