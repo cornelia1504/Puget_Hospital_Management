@@ -3,33 +3,85 @@ body {
     color: #ffffff;
     font-size: 26px;
     font-family: serif, "Harlow Solid Italic";
-    background-color: #c8a2c7;
+    /* background-color: #c8a2c7; */
     text-align: center;
     line-height: 1.5;
     max-width: 100%;
     margin: 0 auto;
     /* margin: 80px;  Supprimer les marges par défaut du corps */
-
+    padding: 0;
+    height: 100vh;
+    /* overflow: hidden; */
+    background-size: 100% 100%;
+    max-height: 100vh;
+    overflow-y: auto; /* Vertical scrollbar will appear if the content overflows */
 }
 
+.bottombar{ margin-top: 18px;height: 5%;background-color:  rgba(151, 150, 240, 0.8);
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px;} /*;background: linear-gradient(0deg, #2196f3 , #fff 50%)*/
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(83, 178, 221, 0.62);
+        padding: 10px;
+    }
 
-.navbar {
-            background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
-            padding: 15px;
-            font-family: serif, "Harlow Solid Italic";
-            text-align: center;
-            color: white;
-            font-size: 24px;
-        }
+    .logo img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+
+    .center-text {
+        margin-right: 20%;
+        flex: 1;
+        text-align: right;
+        color: white; /* Couleur du texte au milieu */
+    }
+
+    .nav-buttons {
+        display: flex;
+        color: salmon; /* Couleur du texte du bouton */
+
+    }
+
+    .nav_button {
+        display: inline-block;
+        line-height: 2.5;
+        border-radius: 10px;
+        padding: 10px 10px;
+        font-size: 17px;
+        height: 100%;
+        width: 120px;
+        margin: 0;
+        margin-left: 10px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: rgba(255, 70, 150, 0.7); /* salmon Couleur de fond du bouton */
+        border: 2px rgba(83, 178, 221, 0.62); /* Bordure blanche de 2 pixels */
+        transition: background-color 0.3s, color 0.3s; /* Animation de transition */
+    }
+
+    .nav_button:hover {
+        background-color: white;
+        color: rgba(83, 178, 221, 0.9);
+        transform: scale(1.1);
+        box-shadow: 4px 3px 7px #6f7273;
+    }
 
 .content {
-    background-size: cover;
-    background-position: center;
-    min-height: 100px; /* Hauteur minimale de la section du contenu à 100% de la hauteur de la vue (viewport) */
-    padding-top: 150px; /* Ajustez cette valeur en fonction de la hauteur de votre barre de navigation */
-    color: white; /* Couleur du texte sur l'image de fond */
-
-
+background-size: cover;
+background-position: center;
+min-height: 100px; /* Hauteur minimale de la section du contenu à 100% de la hauteur de la vue (viewport) */
+padding-top: 150px; /* Ajustez cette valeur en fonction de la hauteur de votre barre de navigation */
+color: white; /* Couleur du texte sur l'image de fond */
 }
 
 
@@ -93,7 +145,6 @@ form {
     box-sizing: border-box; /* Assure que la largeur inclut les rembourrages et les bordures */
     border: 40px solid rgba(255, 255, 255, 1); /* Bordure bleue semi-transparente */
     border-radius: 10px; /* Bords arrondis */
-    text-align: center;
     overflow: auto;
 }
 
@@ -125,7 +176,7 @@ form button {
     margin-top: 10px;
 }
 form button:hover {
-    background-color: #8AFF8A; /* Fond vert clair */
+    background-color: #7f8c8d;
     color: white;
 }
 
@@ -135,18 +186,33 @@ form button:active {
     color: white;
 }
 
-form a{
-    padding: 7px;
-    background-color: rgba(83, 178, 221, 0.62);  /* Couleur taupe */
+button a {
+    text-decoration: unset;
+    color: inherit;
+}
+
+
+.button-container {
+
+    width: 350px;
+
+}
+.button-container button {
+  width: 100%;
+    left : 0;
+}
+/* Styles pour les boutons actifs */
+.button-container button:hover {
+    background-color: #7f8c8d !important;
     color: white;
-    text-align: justify-all;
-    margin: 0 auto;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    max-width: 20%;
-    margin-top: 10px;
+    transform: scale(1.1);
+    box-shadow: 4px 3px 7px #6f7273;
+}
+
+.button-container a:active {
+    background-color: #8AFF8A; /* Fond vert clair */
+    box-shadow: inset -2px -2px 3px rgba(0, 0, 255, 1), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    color: white;
 }
 
 .center-form {
@@ -181,3 +247,35 @@ a{
 .content-container {
     overflow: auto;
   }
+
+.welcome_text{
+    margin-top: 5%;
+    text-align: justify-all;
+    font-family: 'Script MT Bold',serif;
+    background-color: rgba(151, 150, 240, 0.8) ;" /*#9796f0*/
+}
+
+.bottom_home_img img {
+    width: 2700px!important;
+    height: 2700px !important;
+    display: block !important;
+    margin: auto !important;
+}
+#add_operation_form p{
+    display: grid;
+    grid-template-columns: 130px auto;
+}
+.helptext {
+    margin-left: auto;
+    color : red;
+    display: block;
+    margin-top: 5px; /* Adjust the margin as needed */
+}
+
+.h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #001F3F;
+            font-size: 28px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }

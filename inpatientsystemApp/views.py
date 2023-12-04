@@ -1,22 +1,52 @@
-from django.http import HttpResponseRedirect
+from turtle import pd
 
+from django.http import HttpResponseRedirect, HttpResponse
+from django.http import JsonResponse
+from rest_framework.renderers import JSONRenderer
+from .models import Patient
+from .serializers import PatientSerializer
 from inpatientsystem import forms
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from datetime import datetime
 from django.contrib.auth.views import LogoutView
 from django.shortcuts import render
-from .models import Bed, OperatingRoomSchedule, OperatingRoom, Doctor
+from .models import Bed, OperatingRoomSchedule, OperatingRoom, Doctor, Operation, Patient
 from django.contrib.auth.models import Group
 from django.contrib.auth.forms import UserCreationForm
-from inpatientsystem.forms import DoctorSignupForm
-from inpatientsystem.forms import DoctorUserForm, DoctorForm, OperationPerformingForm, OperatingRoomScheduleForm, OperationForm
+from inpatientsystem.forms import DoctorForm, OperatingRoomScheduleForm, OperationForm, PatientForm, BedForm
 from django.contrib.auth.models import Group
 from django.views.decorators.csrf import csrf_protect
-def homepage(request,):
+from django.http import JsonResponse
+
+
+# ---------------------------------------------------------------------------------
+# ------------------------ INFORMATION PAGES --------------------------------------
+# ---------------------------------------------------------------------------------
+def homepage(request, ):
     return render(request, "homepage.html", {"name": "Mamitiana"})
+
+
+
+
+
+def login_page(request, ):
+    return render(request, "login.html")
+
+
+def info_page(request, ):
+    return render(request, "info_page.html")
+
+
+def contact(request, ):
+    return render(request, "contact_page.html")
+
+
+# ---------------------------------------------------------------------------------
+# ---------------------------------------ADD---------------------------------------
+# ---------------------------------------------------------------------------------
 def add(request, class_forms, template, redirect_page):
     if not request.user.is_staff:
         messages.error(request, "Access denied")
@@ -32,74 +62,18 @@ def add(request, class_forms, template, redirect_page):
         form = form_class(request.POST)
         if form.is_valid():
             user = form.save()
-            #messages.success(request, f'{user.username} is added successfully!')
+            messages.success(request, f'Add successfully!')
             return redirect(redirect_page)
     else:
         form = form_class()
-
+        messages.success(request, f'Password look same as username')
 
     return render(request, template, {'form': form})
 
-@login_required
-def add_user(request):
-    return add(request, 'UserCreationForm', 'add_user.html', 'admin_workspace')
 
-@login_required
-def add_doctor(request):
-    return add(request, 'DoctorForm', 'add_doctor.html', 'admin_workspace')
-
-def my_operation(request):
-
-    # 假设你已经在视图中获取了当前登录的医生用户
-    current_doctor = request.user.doctor
-
-    # 获取当前登录医生的所有 OperationPerforming 行
-    doctor_operations = OperationPerformingForm.objects.filter(id_doctor=current_doctor)
-
-    context = {
-        'doctor_operations': doctor_operations,
-    }
-def add_patient(request):
-    return add(request,'PatientForm', 'add_patient.html','doctor_workspace')
-
-
-def add_operation(request):
-    if request.method == 'POST':
-        # 根据提交的表单类型，创建相应的表单实例
-        form_type = request.POST.get('form_type')  # 假设有一个隐藏的表单字段指示表单类型
-        if form_type == 'operating_room_schedule':
-            form = OperatingRoomScheduleForm(request.POST)
-        elif form_type == 'operation_performing':
-            form = OperationPerformingForm(request.POST)
-        elif form_type == 'operation':
-            form = OperationForm(request.POST)
-        else:
-            # 处理未知的表单类型
-            return render(request, 'error_page.html', {'error_message': 'Unknown form type'})
-
-        # 检查表单是否有效
-        if form.is_valid():
-            # 保存表单数据
-            form.save()
-
-            # 重定向到 doctor_workspace
-            return redirect('doctor_workspace')
-        else:
-            # 处理表单验证失败的情况
-            return render(request, 'error_page.html', {'error_message': 'Form validation failed'})
-    else:
-        # 如果是 GET 请求，创建一个空的表单实例
-        operating_room_schedule_form = OperatingRoomScheduleForm()
-        operation_performing_form = OperationPerformingForm()
-        operation_form = OperationForm()
-
-        return render(request, 'add_operation.html', {
-            'operating_room_schedule_form': operating_room_schedule_form,
-            'operation_performing_form': operation_performing_form,
-            'operation_form': operation_form,
-        })
-
-
+# ---------------------------------------------------------------------------------
+# ------------------------ ADMIN RELATED VIEWS START ------------------------------
+# ---------------------------------------------------------------------------------
 def admin_login(request):
     form = forms.admin_login_Form()
     message = ''
@@ -119,12 +93,31 @@ def admin_login(request):
     return render(
         request, 'admin_login.html', context={'form': form, 'message': message})
 
+
 @login_required
 def admin_workspace(request):
     if not request.user.is_staff:
         messages.error(request, "Access denied")
         return redirect(admin_login)
-    return render(request, "admin_workspace.html", {"name" : "Mamitiana"})
+    return render(request, "admin_workspace.html")
+
+
+# def admin_workspace(request):
+#     if not request.user.is_staff:
+#         messages.error(request, "Access denied")
+#         return redirect(admin_login)
+#     return render(request, "admin_workspace.html", {"name" : "Mamitiana"})
+
+
+@login_required
+def add_user(request):
+    return add(request, 'UserCreationForm', 'add_user.html', 'add_user')
+
+
+@login_required
+def add_doctor(request):
+    return add(request, 'DoctorForm', 'add_doctor.html', 'add_doctor')
+
 
 @login_required
 def admin_django(request):
@@ -132,9 +125,18 @@ def admin_django(request):
         return render(request, 'admin_django.html')
     else:
         # Gérer le cas où l'utilisateur n'est pas membre du personnel
-        #return render(request, 'non_staff_template.html')
-        return redirect('homepage.html')# template à crer et à modifier
+        # return render(request, 'non_staff_template.html')
+        return redirect('homepage.html')  # template à crer et à modifier
 
+
+def admin_logout(request):
+    return redirect(homepage)
+    # return LogoutView.as_view()(request)
+
+
+# ---------------------------------------------------------------------------------
+# ------------------------ DOCTOR RELATED VIEWS START -----------------------------
+# ---------------------------------------------------------------------------------
 def doctor_login(request):
     form = forms.doctor_login_Form()
     message = ''
@@ -147,18 +149,15 @@ def doctor_login(request):
             )
             if user is not None:
                 login(request, user)
-                #message = f'Hello, {user.username}! You are connected successfully.'
+                # message = f'Hello, {user.username}! You are connected successfully.'
                 return redirect('doctor_workspace')
             else:
                 message = 'Invalid identifier or password'
     return render(
         request, 'doctor_login.html', context={'form': form, 'message': message})
 
-# def doctor_workspace(request):
-#     current_date = datetime.now()
-#     return render(request, "doctor_workspace.html", {'current_date': current_date})
 
-
+@login_required
 def doctor_workspace(request):
     # 计算 bed_occupied 和 operating_room_occupied 的信息
     total_beds = Bed.objects.count()
@@ -167,7 +166,8 @@ def doctor_workspace(request):
 
     total_operating_rooms = OperatingRoom.objects.count()
     occupied_operating_rooms = OperatingRoomSchedule.objects.count()
-    operating_room_occupied = (occupied_operating_rooms / total_operating_rooms) * 100 if total_operating_rooms > 0 else 0
+    operating_room_occupied = (
+                                          occupied_operating_rooms / total_operating_rooms) * 100 if total_operating_rooms > 0 else 0
 
     context = {
         'doctor': request.user.doctor,
@@ -178,64 +178,100 @@ def doctor_workspace(request):
     return render(request, 'doctor_workspace.html', context)
 
 
-# def doctor_sign_up(request):
-#     form = forms.DoctorUserForm()
-#     message = ''
-#     if request.method == 'POST':
-#         form = forms.DoctorUserForm(request.POST)
-#         if form.is_valid():
-#             user = authenticate(
-#                 username=form.cleaned_data['username'],
-#                 password=form.cleaned_data['password'],
-#             )
-#             if user is not None:
-#                 user = form.save()
-#                 login(request, user)
-#                 return redirect('doctor_login')
-#             else:
-#                 message = 'Invalid identifier or password'
-#     return render(
-#         request, 'doctor_sign_up.html', context={'form': form, 'message': message})
+@login_required
+def add_patient(request):
+    # return add(request, 'PatientForm', 'add_patient.html', 'doctor_workspace')
+    if request.method == "POST":
+        patient_form = PatientForm(request.POST)
+        if patient_form.is_valid():
+            # 保存病人信息
+            patient = patient_form.save()
 
-# def doctor_signup_view(request):
-#     form = DoctorSignupForm()
-#     if request.method == 'POST':
-#         form = DoctorSignupForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             user.set_password(form.cleaned_data['password1'])
-#             user.save()
-#             my_doctor_group = Group.objects.get_or_create(name='DOCTOR')
-#             my_doctor_group[0].user_set.add(user)
-#             return HttpResponseRedirect('doctor_login')
-#
-#     return render(request, 'doctor_sign_up.html', context={'form': form})
+            # 获取选择的床位
+            selected_bed = patient_form.cleaned_data.get('id_bed')
+
+            if selected_bed:
+                # 将床位关联到病人
+                selected_bed.id_patient = patient
+                selected_bed.save()
+
+                # 更新BedForm中的id_patient字段
+                bed_data = {'id_patient': patient.id_patient, 'id_department': selected_bed.id_department, 'bed_department': selected_bed.bed_department}
+                bed_form = BedForm(data=bed_data)
+                if bed_form.is_valid():
+                    bed_form.save()
+
+            return redirect('doctor_workspace')# 可以添加其他逻辑，比如在页面上显示成功消息
+
+    else:
+        patient_form = PatientForm()
+
+    return render(request, 'add_patient.html', {'form': patient_form})
+
+def discharge_patient(request, patient_id):
+    # 获取要出院的病人
+    patient = get_object_or_404(Patient, id=patient_id)
+
+    # 获取病人所在的床位
+    bed = patient.id_bed
+
+    if bed:
+        # 将床位关联到病人设为 None，表示空床位
+        bed.id_patient = None
+        bed.save()
+
+        # 更新BedForm中的id_patient字段
+        bed_data = {'id_patient': None, 'id_department': bed.id_department, 'bed_department': bed.bed_department}
+        bed_form = BedForm(data=bed_data, instance=bed)
+        if bed_form.is_valid():
+            bed_form.save()
+
+    # 删除病人
+    patient.delete()
+
+    return redirect('doctor_workspace')  # 重定向回医生工作区，或者你想要的其他页面
+def my_operation(request):
+    # 获取当前登录用户对应的医生对象
+    current_doctor = request.user.doctor
+    # 获取医生ID
+    current_doctor_id = current_doctor.id_doctor
+    # Operation of current doctor
+    doctor_operations = OperatingRoomSchedule.objects.filter(id_doctor=current_doctor_id).values()
+    data = list(doctor_operations)
+    # return JsonResponse({'data': data})
+    context = {'data': data}
+
+    # context to render
+    return render(request, 'my_operation.html', context)
+
+# def my_patient(request):
+
+@login_required
+def add_operation(request):
+    return add(request, 'OperationForm', 'add_operation.html', 'doctor_workspace')
+
+def patients(request, ):
+    patients = Patient.objects.all()
+    return render(request, "patients.html", {"patients":  patients})
 
 
-def doctor_signup_view(request):
-    user_form = DoctorUserForm()
-    doctor_form = DoctorForm()
-    mydict = {'userForm': user_form, 'doctorForm': doctor_form}
-    if request.method == 'POST':
-        user_form = forms.DoctorUserForm(request.POST)
-        doctor_form = forms.DoctorForm(request.POST)
-        if user_form.is_valid() and doctor_form.is_valid():
-            user = user_form.save()
-            user.set_password(user.password)
-            user.save()
-            doctor = doctor_form.save(commit=False)
-            doctor.user = user
-            doctor = doctor.save()
-            my_doctor_group = Group.objects.get_or_create(name='DOCTOR')
-            my_doctor_group[0].user_set.add(user)
-        return HttpResponseRedirect('doctor_login')
-    return render(request, 'doctor_sign_up.html', context=mydict)
+    # patients_list = Patient.objects.values(
+    #     'id_bed', 'last_name', 'patient_department',
+    #     'first_name', 'last_name', 'date_of_birth', 'gender_patient'
+    # )
+    # return JsonResponse(list(patients_list), safe=False)
+    # return JsonResponse(data, safe=False)
 
-def admin_logout(request):
-    return LogoutView.as_view()(request)
+# def patients(request):
+#     patients_list = Patient.objects.all()
+#     serializer = PatientSerializer(patients_list, many=True)
+#     return JsonResponse(serializer.data, safe=False)
+
+
+@login_required
+def operating_room_booking(request):
+    return add(request, 'OperatingRoomScheduleForm', 'operating_room_booking.html', 'doctor_workspace')
+
+
 def doctor_logout(request):
     return redirect(homepage)
-@login_required
-def add_operatingroomschedule(request):
-    return add(request, 'OperatingRoomScheduleForm', 'add_operatingroomschedule.html', 'admin_workspace')
-

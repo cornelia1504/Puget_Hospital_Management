@@ -22,6 +22,11 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.homepage, name='homepage'),
+
+    path('login/', views.login_page, name='login'),
+    path('info/', views.info_page, name='info_page'),
+    path('contact/', views.contact, name='contact_page'),
+
     path('admin/', admin.site.urls, name='admin'),
     path('admin_login/', views.admin_login, name='admin_login'),
     path('admin_workspace/', views.admin_workspace, name='admin_workspace'),
@@ -29,17 +34,19 @@ urlpatterns = [
     path('add_doctor/', views.add_doctor, name='add_doctor'),
     path('doctor_login/', views.doctor_login, name='doctor_login'),
     path('doctor_workspace/', views.doctor_workspace, name='doctor_workspace'),
-    path('doctor_sign_up/', views.doctor_signup_view, name='doctor_sign_up_view'),
+    # path('doctor_sign_up/', views.doctor_signup_view, name='doctor_sign_up_view'),
     path('admin_logout/', views.admin_logout, name='admin_logout'),
     path('doctor_logout/', views.doctor_logout, name='doctor_logout'),
 
-    path('doctor_sign_up/doctor_login/', views.doctor_login, name='doctor_login'),
+    # path('doctor_sign_up/doctor_login/', views.doctor_login, name='doctor_login'),
     path('doctor_workspace/add_patient/', views.add_patient, name='add_patient'),
+    path('doctor_workspace/operating_room_booking/', views.operating_room_booking, name='operating_room_booking'),
     path('doctor_workspace/my_operation/', views.my_operation, name='my_operation'),
+    # path('doctor_workspace/my_patient/', views.my_patient, name='my_patient'),
     path('doctor_workspace/add_operation/', views.add_operation, name='add_operation'),
     path('doctor_workspace/logout/', auth_views.LogoutView.as_view(), name='logout'),
-
-
+    path('doctor_workspace/patients/', views.patients, name='patients'),
+    path('discharge_patient/<int:patient_id>/', views.discharge_patient, name='discharge_patient'),
 ]
 
 if settings.DEBUG:
