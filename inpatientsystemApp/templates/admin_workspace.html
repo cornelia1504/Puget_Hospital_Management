@@ -1,14 +1,52 @@
+
 {% extends 'homepage.html' %}
+
 {% block content %}
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-      <div class="button-container">
-        <p>{{ message }}</p>
-          <a type="submit" href = "{% url 'add_user' %}" >Add user</a><br>
-          <a type="submit" href = "{% url 'add_doctor' %}">Add doctor</a><br>
-          <a href="{% url 'admin:index' %}">Go to administration</a>
-          <a href="{% url 'admin_logout' %}">Logout</a>
-      </div>
-  </form>
-{% endblock content %}
+         {% load static %}
+<div class="container-fluid">
+        <div class="row">
+            <!-- Colonne gauche avec le menu -->
+
+            <div class="col-md-2" style="background-color: rgba(83, 178, 221, 0.62); border-radius: 10px; background-image: linear-gradient(
+                to top right,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 30%,
+                rgba(0, 0, 0, 0)); height: 100vh;">
+                <nav class="menu" tabindex="0">
+                    <header class="avatar">
+                        <img style="height: 60%;margin-top: 10%; border-radius: 10px" src="{% static "media/images/man-admin.webp" %}"/> <br>
+                        <h6>ADMIN</h6>
+                        <br>
+                    </header>
+                    <ul>
+                        <a style="left: 0 !important;color:white; text-decoration:none; font-size: 17px; " href="{% url 'admin:index' %}"><span  style="font-size: 17px">Go to administration</span></a> <br>
+                        <a style="left: 0 !important;color:white; text-decoration:none; font-size: 17px; " href="{% url 'admin_logout' %}"><span style="font-size: 17px">Logout</span></a>
+                    </ul>
+                </nav>
+            </div>
+
+
+
+            <!-- Colonne du milieu avec le formulaire -->
+            <div class="col-md-10">
+                    <button class="home_button">
+                        <a class href="{% url 'add_user' %}" role="button"
+                           style="text-decoration: none;"><img src="{% static 'media/images/clipboard-user-solid.svg' %}" alt="admin"><br>
+                            <span style="margin-left: 11px; color: white;font-size: 20px">Add user</span></a>
+                    </button>
+                    <button class="home_button">
+                        <a class href="{% url 'add_doctor' %}" role="button"
+                           style="text-decoration: none;"><img src="{% static 'media/images/clipboard-user-solid2.svg' %}" alt="admin"><br>
+                            <span style="margin-left: 11px; color: white;font-size: 20px">Add doctor</span></a>
+                    </button>
+                    <button class="home_button">
+                        <a href="{% url 'admin:index' %}" role="button"
+                           style="text-decoration: none;"><img src="{% static 'media/images/clipboard-user-solid.svg' %}" alt="admin"><br>
+                            <span style="margin-left: 11px; color: white;font-size: 20px">Administration</span></a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

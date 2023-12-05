@@ -145,27 +145,30 @@
 
             </div>
             <div class="col-md-8">
-                <h2>My operation</h2>
+                <h2>My Booking Operating Room</h2>
                 <table id="Operation_Table" class="display">
                     <thead>
                     {#                    <tr>#}
-                    <th>Operation Room</th>
-                    <th>Patient</th>
                     <th>Doctor</th>
-                    <th>Operation Name</th>
-                    <th>Date</th>
+                    <th>Operating Room</th>
+                    <th>Start Time</th>
+                    <th>Finish Time</th>
+                    <th>Cancel Booking</th>
 
                     <!-- table head -->
                     {#                    </tr>#}
                     </thead>
                     {#                    <tbody>#}
-                    {% for item in data %}
+                    {% for item in upcoming_bookings %}
                         <tr>
-                            <td>{{ item.id_operating_room_id }}</td>
-                            <td>{{ item.patient_name }}</td>
-                            <td>{{ item.doctor_name }}</td>
-                            <td>{{ item.name_operation }}</td>
-                            <td>{{ item.date_of_operation }}</td>
+                            <td>{{ item.id_doctor }}</td>
+                            <td>{{ item.id_operating_room }}</td>
+                            <td>{{ item.scheduled_time }}</td>
+                            <td>{{ item.finish_time }}</td>
+                            <td> <a href="#" class="cancel-booking" data-booking-id="{{ item.id }}">
+                                Cancel
+                            </a></td>
+
 
                         </tr>
                     {% endfor %}
@@ -177,6 +180,34 @@
                     $(document).ready(function () {
                         $('#Operation_Table').DataTable();
                     });
+                    // Add a click event listener to the cancel
+                    $('.cancel-booking').on('click', function () {
+                            // Get the booking ID from the data attribute
+                            var bookingId = $(this).data('booking-id');
+
+                            // Show a confirmation dialog
+                            var confirmation = confirm('Are you sure you want to cancel this booking?');
+
+                            if (confirmation) {
+                                // Send an AJAX request to cancel the booking
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '/cancel_booking/' + bookingId + '/',
+                                    data: {
+                                        csrfmiddlewaretoken: '{{ csrf_token }}',  // Include the CSRF token
+                                    },
+                                    success: function (response) {
+                                        // Handle the success response, e.g., show an alert
+                                        alert(response.message);
+                                        location.reload();
+                                    },
+                                    error: function (error) {
+                                        console.error('Error canceling booking:', error);
+                                }
+                            });
+                        }
+                    });
+
 
 
                 </script>

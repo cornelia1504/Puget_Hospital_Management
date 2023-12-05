@@ -5,12 +5,15 @@
 
 {% block content %}
     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    {#    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">#}
     {#    <script src="{% static 'scripts/jquery.min.js' %}" defer></script>#}
     {#    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>#}
-    {#    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">#}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css"/>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+
 
     <style>
         /* Styles CSS pour le formulaire */
@@ -38,7 +41,7 @@
             border-radius: 10px;
         }
 
-        #Operation_Table {
+        #Patient_Table {
             width: 100%;
             margin: 20px auto;
             background-color: rgba(173, 216, 230, 0.8);
@@ -46,7 +49,7 @@
             padding: 20px;
         }
 
-        #Operation_Table th, #Operation_Table td {
+        #Patient_Table th, #Patient_Table td {
             text-align: center; /* 字体居中显示 */
             color: #001F3F;
             border: 1px solid #ddd; /* Subtle border */
@@ -55,16 +58,16 @@
             font-size: 14px;
         }
 
-        #Operation_Table tbody tr:nth-child(even) {
+        #Patient_Table tbody tr:nth-child(even) {
             background-color: rgba(35, 91, 169, 0.35); /* 偶数行背景色 */
         }
 
-        #Operation_Table thead {
+        #Patient_Table thead {
             background-color: rgba(255, 70, 150, 0.4); /* Pink color with 50% transparency */
             border-radius: 8px;
         }
 
-        #Operation_Table tbody tr:hover {
+        #Patient_Table tbody tr:hover {
             background-color: #e0e0e0; /* 鼠标悬停时的背景色 */
         }
 
@@ -145,43 +148,91 @@
 
             </div>
             <div class="col-md-8">
-                <h2>My operation</h2>
-                <table id="Operation_Table" class="display">
+                <h2>My Patients</h2>
+                <table id="Patient_Table" class="display">
                     <thead>
-                    {#                    <tr>#}
-                    <th>Operation Room</th>
-                    <th>Patient</th>
-                    <th>Doctor</th>
-                    <th>Operation Name</th>
-                    <th>Date</th>
+                    <tr>
+                        <th>Bed</th>
+                        <th>Doctor</th>
+                        <th>Department</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                         <th>Discharge</th>
 
-                    <!-- table head -->
-                    {#                    </tr>#}
+                    </tr>
                     </thead>
-                    {#                    <tbody>#}
-                    {% for item in data %}
+                    <tbody>
+                    {% for patient in patients %}
                         <tr>
-                            <td>{{ item.id_operating_room_id }}</td>
-                            <td>{{ item.patient_name }}</td>
-                            <td>{{ item.doctor_name }}</td>
-                            <td>{{ item.name_operation }}</td>
-                            <td>{{ item.date_of_operation }}</td>
+                            <td>{{ patient.id_bed }}</td>
+                            <td>{{ patient.id_doctor }}</td>
+                            <td>{{ patient.patient_department }}</td>
+                            <td>{{ patient.first_name }}</td>
+                            <td>{{ patient.last_name }}</td>
+                            <td>{{ patient.date_of_birth }}</td>
+                            <td>{{ patient.gender_patient }}</td>
+                        <td><a href="#" class="discharge-link"
+                                           data-patient-id="{{ patient.id_patient }}"
+                                           data-first-name="{{ patient.first_name }}"
+                                           data-last-name="{{ patient.last_name }}">Discharge</a></td>
 
                         </tr>
                     {% endfor %}
-
-                    {#                    </tbody>#}
+                    </tbody>
                 </table>
 
                 <script>
                     $(document).ready(function () {
-                        $('#Operation_Table').DataTable();
+                        $('#Patient_Table').DataTable();
                     });
+                    document.addEventListener('DOMContentLoaded', function () {
+                                // 获取所有触发出院操作的链接
+                                var dischargeLinks = document.querySelectorAll('.discharge-link');
+
+                                // 为每个链接添加点击事件处理程序
+                                dischargeLinks.forEach(function (link) {
+                                    link.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        console.log('Link clicked!');// 添加这行以检查是否触发点击事件
+
+                                        // 获取病人 ID
+                                        var patientId = link.getAttribute('data-patient-id');
+                                        var firstName = link.getAttribute('data-first-name');
+                                        var lastName = link.getAttribute('data-last-name');
+
+                                        var confirmation = confirm('Are you sure you want to discharge ' + firstName + ' ' + lastName + '?');
+                                        console.log('Confirmation message!');
+
+                                        if (confirmation) {
+                                            // 发送 Ajax 请求触发出院操作
+                                            fetch('{% url "discharge_patient" 0 %}'.replace('0', patientId), {
+                                                method: 'GET',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    // 你可以添加其他头部，比如 CSRF Token
+                                                },
+                                            })
+                                                .then(function (response) {
+                                                    if (response.ok) {
+                                                        // 处理成功的响应，可以刷新页面或者更新表格数据
+                                                        console.log('Ajax request success!'); // 添加这行以检查是否成功处理了请求
+                                                        location.reload();
+                                                    } else {
+                                                        console.error('Failed to discharge patient');
+                                                    }
+                                                })
+                                                .catch(function (error) {
+                                                    console.error('Error:', error);
+                                                });
+                                        }
+                                    });
+                                });
+                            });
 
 
                 </script>
-
-
             </div>
         </div>
     </div>

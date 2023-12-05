@@ -21,7 +21,6 @@
     place-items: center;
     font-family: var(--font-family);
     background:linear-gradient(to right, #9796f0, #fbc7d4);
-    /*#0000ff, #9796f0*/
     overflow: hidden;
   }
   .contianer {
@@ -33,22 +32,25 @@
     justify-content: center;
     top: 10%;
     right: 0%;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
   }
+
   .calendar {
     height: 610px;
     width: max-content;
     background-color: white;
     border-radius: 25px;
     overflow: hidden;
-    padding: 30px 50px 0px 50px;
+    /*padding: 30px 50px 0px 50px;*/
+    padding: 0; /*YL*/
   }
   .calendar {
     box-shadow: var(--shadow);
   }
   .calendar-header {
     background: #9796f0;
+    /*background: #36a0ba; bleu */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +59,8 @@
     padding: 10px;
   }
   .calendar-body {
-    pad: 10px;
+    /*pad: 10px;*/
+    pad: 3 "0";
   }
   .calendar-week-days {
     display: grid;
@@ -121,6 +124,7 @@
   }
   .year-change:hover {
     background-color: var(--light-btn);
+
     transition:all .2s ease-in-out ;
     transform: scale(1.12);
   }
@@ -202,7 +206,7 @@
     font-family: Dubai Light, Century Gothic;
     position: relative;
     display: inline;
-    top: 140px;
+    top: 14px;
     justify-content: center;
     color: black; /* YL */
 
@@ -210,20 +214,25 @@
   .day-text-formate {
     font-family: Microsoft JhengHei UI;
     font-size: 1.4rem;
-    padding-right: 5%;
-    border-right: 3px solid #9796f0;
-    position: absolute;
+    /*padding-right: 5%;*/
+    padding-right: 1%;
+    /*border-right: 3px solid #9796f0;*/
+    border-right: 250px solid white; /* YL */
+    /*position: absolute;*/
+    position: sticky;
+    top: 20px;
     left: -1rem;
-    color: black;
+    color: black;/* YL */
 
   }
   .date-time-value {
     display: block;
     height: max-content;
     width: max-content;
-    position: relative;
+    /*position: relative;*/
+    position: sticky;
     left: 40%;
-    top: -18px;
+    top: -4px;
     text-align: center;
 
   }

@@ -1,7 +1,20 @@
 {% extends 'doctor_workspace.html' %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
 {% csrf_token %}
-
 {% block content %}
+    <script>
+        function validateFinishTime() {
+            var scheduledTime = new Date(document.getElementById('id_scheduled_time').value);
+            var finishTime = new Date(document.getElementById('id_finish_time').value);
+
+            if (finishTime < scheduledTime) {
+                alert('Finish time cannot be earlier than scheduled time.');
+                document.getElementById('id_finish_time').value = '';  // Clear the finish_time input
+            }
+        }
+    </script>
     {% load static %}
     <style>
         /* Styles CSS pour le formulaire */
@@ -12,6 +25,7 @@
             max-width: 500px;
             margin: 0 auto;
         }
+
         h2 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #001F3F;
@@ -19,7 +33,6 @@
             margin-bottom: 10px;
             margin-top: 20px;
         }
-
     </style>
     <div class="container-fluid">
         <div class="row">
@@ -58,22 +71,19 @@
 
             </div>
             <div class="col-md-8">
-                <h2>Add Operation</h2>
-                <form method="post" action="{% url 'add_operation' %}" enctype="multipart/form-data">
+                <h2>Operating Room Booking</h2>
+                <form method="post" action="{% url 'operating_room_booking' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <div class="button-container">
-                        <button type="submit" style="background-color: lightgreen; color: white !important;">Save</button>
-                        <button type="reset" style="background-color: rgba(83, 178, 221, 0.62); color: white !important;">Reset</button>
-                        <button type="button" style="background-color: red; color: white !important;" onclick="window.location.href='{% url 'doctor_workspace' %}'">
-                            Quit
-                        </button>
-                    </div>
+                <div class="button-container">
+                    <button type="submit" style="background-color: lightgreen; color: white;">Save</button>
+                    <button type="reset" style="background-color: rgba(83, 178, 221, 0.62); color: white;">Reset</button>
+                    <button type="button" style="background-color: red; color: white;" onclick="window.location.href='{% url 'doctor_workspace' %}'">
+                        Quit
+                    </button>
+                </div>
                 </form>
             </div>
         </div>
     </div>
-
-
-
 {% endblock %}
