@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c4fe503e-bd26-4947-b32c-bb3f04fb7e69" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/environment 0.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/migrations/0010_alter_bed_id_bed.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/migrations/0011_alter_operatingroom_id_operating_room_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/css/info_page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/Diapositive1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/doc-echo.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/doc_add_patient.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/doc_bureau_vert.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/doc_femme_clic.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/doc_pat_infi.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/fond_logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/fond_w_hp.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/lgpuget.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/man-admin.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/puget_logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/contact_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/info_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/my_booking_room.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/my_patients.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/operating_room_booking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inpatientsystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inpatientsystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystem/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystem/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystem/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystem/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystem/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystem/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/animate.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/css2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/nice-select.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/owl-carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/style_calender.css" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/static/css/style_calender.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/venobox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/css/www-player.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/static/media/images/doctor_image.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/add_doctor.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/add_doctor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/add_operating_room_schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/discharge_patient_message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/add_operation.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/add_operation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/add_patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/add_patient.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/add_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/add_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/admin_django.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/admin_django.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/admin_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/admin_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/admin_workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/admin_workspace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/doctor_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/doctor_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/doctor_sign_up.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/doctor_workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/doctor_workspace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/templates/my_operation.html" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/templates/my_operation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inpatientsystemApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/inpatientsystemApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/note" beforeDir="false" afterPath="$PROJECT_DIR$/note" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements" beforeDir="false" afterPath="$PROJECT_DIR$/requirements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2YznFb9lnXN5S7nKbqtw6dZckpR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging master",
+    "last_opened_file_path": "D:/projet_django2023/inpatientsystem/inpatientsystemApp/static/media/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projet_django2023\inpatientsystem\inpatientsystemApp\static\media\images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="inpatientsystem" type="Python.DjangoServer" factoryName="Django server">
+      <module name="inpatientsystem" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4fe503e-bd26-4947-b32c-bb3f04fb7e69" name="Changes" comment="" />
+      <created>1701537175208</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701537175208</updated>
+      <workItem from="1701537176948" duration="48039000" />
+      <workItem from="1701599669528" duration="8429000" />
+      <workItem from="1701692088248" duration="27736000" />
+      <workItem from="1701726952124" duration="10732000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
